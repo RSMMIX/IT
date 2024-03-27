@@ -1,7 +1,6 @@
 from tkinter import *
-# from tkinter import ttk
+from tkinter import messagebox
 from math import sqrt
-# from tkinter import messagebox
 
 # Triangle type checking function
 def check_triangle_type(a, b, c):
@@ -24,10 +23,10 @@ def check_triangle_type(a, b, c):
 def validate_input(input_str):
     try:
         float_value = float(input_str)
+        if float_value <= 0 or float_value > 101:  # Adjusted this condition
+            raise ValueError
         int_value = int(float_value)
         if float_value != int_value or '.' in input_str:
-            raise ValueError
-        if int_value < 1 or int_value > 101:
             raise ValueError
         return True
     except ValueError:
